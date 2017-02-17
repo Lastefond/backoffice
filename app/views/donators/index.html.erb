@@ -5,9 +5,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:box_id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:donations_sum) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,9 +15,9 @@
   <tbody>
     <% @donators.each do |donator| %>
       <tr>
-        <td><%= link_to donator.id, donator_path(donator) %></td>
-        <td><%= donator.box_id %></td>
+        <td><%= donator.box.location %></td>
         <td><%= donator.name %></td>
+        <td><%= donator.sum_donations %></td>
         <td><%=l donator.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),

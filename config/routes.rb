@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'boxes#index'
   resources :donations
   resources :donators
   resources :boxes

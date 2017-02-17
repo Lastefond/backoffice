@@ -9,6 +9,35 @@
   </head>
 
   <body>
-    <%= yield %>
+
+
+
+
+  	
+  	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+	  	<div class="navbar-header"> 
+	  		<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" aria-expanded="false"> 
+	  			<span class="sr-only">Toggle navigation</span>
+	  			<span class="icon-bar"></span> 
+	  			<span class="icon-bar"></span> 
+	  			<span class="icon-bar"></span> 
+	  		</button> <a href="#" class="navbar-brand">Lastefond</a> </div> 
+	  		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8"> 
+	  			<ul class="nav navbar-nav"> 
+	  				<li><%= link_to('Boxes', boxes_path) %></li> 
+	  				<li><%= link_to('Donators', donators_path) %></li> 
+	  				<li><%= link_to('Donations', donations_path) %></li> 
+	  			</ul> 
+	  		</div> 
+	  	</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+    			<%= yield %>
+    		</div>
+    	</div>
+	</div>
   </body>
 </html>

@@ -14,13 +14,15 @@ ActiveRecord::Schema.define(version: 20170215152728) do
 
   create_table "boxes", force: :cascade do |t|
     t.string   "location"
+    t.decimal  "lat"
+    t.decimal  "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "donations", force: :cascade do |t|
     t.integer  "donator_id"
-    t.integer  "amount"
+    t.decimal  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

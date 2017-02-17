@@ -22,6 +22,20 @@
     </div>
     <%=f.error_span(:location) %>
   </div>
+  <div class="form-group">
+    <%= f.label :lat, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :lat, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:lat) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :long, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :long, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:long) %>
+  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

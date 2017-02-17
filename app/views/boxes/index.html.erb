@@ -7,7 +7,9 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:lat) %></th>
+      <th><%= model_class.human_attribute_name(:long) %></th>
+      <th><%= model_class.human_attribute_name(:donations_sum) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,7 +18,9 @@
       <tr>
         <td><%= link_to box.id, box_path(box) %></td>
         <td><%= box.location %></td>
-        <td><%=l box.created_at %></td>
+        <td><%= box.lat %></td>
+        <td><%= box.long %></td>
+        <td><%= box.sum_donations %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       box_path(box), :class => 'btn btn-default btn-xs' %>
