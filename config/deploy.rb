@@ -21,7 +21,7 @@ set :deploy_to, "/var/www/backoffice"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, ".ruby-env"
+append :linked_files, ".ruby-env", "db/production.sqlite3"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
