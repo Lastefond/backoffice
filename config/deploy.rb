@@ -1,14 +1,14 @@
 # config valid only for current version of Capistrano
 lock "3.7.2"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, "lastefond_backoffice"
+set :repo_url, "git@github.com:Lastefond/backoffice.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+set :deploy_to, "/var/www/backoffice"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
