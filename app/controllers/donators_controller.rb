@@ -24,7 +24,7 @@ class DonatorsController < ApplicationController
   # POST /donators
   # POST /donators.json
   def create
-
+    
     
     return @donator = create_donation(donator_params) unless params['_json'].present?
 
@@ -60,8 +60,14 @@ class DonatorsController < ApplicationController
 
   private
     def create_donation(donator)
-      @donator= Donator.new(donator)
-
+      donations = donator[:coins]
+      donator.delete(:coins)
+      @donator= Donator.create(donator)
+      #binding.pry
+      donations.each do |donation|
+        @donator.donations.create(amount: donation/100)
+      end
+      
       respond_to do |format|
         if @donator.save
           format.html { redirect_to @donator, notice: 'Donator was successfully created.' }
@@ -80,6 +86,6 @@ class DonatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donator_params
-      params.permit(:box_id, :name)
+      params.permit(:box_id, :name, coins: [])
     end
 end
