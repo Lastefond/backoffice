@@ -21,7 +21,7 @@ set :deploy_to, "/var/www/backoffice"
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, ".ruby-env"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -31,3 +31,5 @@ set :deploy_to, "/var/www/backoffice"
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+set :rvm_ruby_version, 'ruby-2.3.3@lastefond'
