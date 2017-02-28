@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170215152728) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "boxes", force: :cascade do |t|
     t.string   "location"
     t.decimal  "lat"
@@ -30,8 +33,9 @@ ActiveRecord::Schema.define(version: 20170215152728) do
   create_table "donators", force: :cascade do |t|
     t.integer  "box_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "received_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

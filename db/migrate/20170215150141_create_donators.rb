@@ -3,6 +3,7 @@ class CreateDonators < ActiveRecord::Migration[5.0]
     create_table :donators do |t|
       t.integer :box_id
       t.string :name
+      t.timestamp :received_at
 
       t.timestamps
     end

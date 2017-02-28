@@ -60,12 +60,15 @@ class DonatorsController < ApplicationController
 
   private
     def create_donation(donator)
-      donations = donator[:coins]
-      donator.delete(:coins)
-      @donator= Donator.create(donator)
-      #binding.pry
-      donations.each do |donation|
-        @donator.donations.create(amount: donation/100)
+    
+      @donator= Donator.create(
+          name: donator[:name],
+          received_at: DateTime.strptime(donator[:timestamp].to_s,'%s'),
+          box: Box.find(donator[:box_id])
+        )
+      
+      donator[:coins].each do |donation|
+        @donator.donations.create(amount: BigDecimal(donation)/100)
       end
       
       respond_to do |format|
@@ -86,6 +89,6 @@ class DonatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donator_params
-      params.permit(:box_id, :name, coins: [])
+      params.permit(:box_id, :name, :timestamp, coins: [])
     end
 end
