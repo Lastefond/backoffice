@@ -17,5 +17,5 @@ development:
 production:
   <<: *default
   database: 'lastefond'
-  user: <%= ENV['DB_PASSWORD'] %>
-  password: <%= ENV['DB_USER'] %>
+  user: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
