@@ -33,7 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'sprockets', '3.6.3'
+gem "less-rails" #, github: 'metaskills/less-rails', branch: 'rails5' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem 'dotenv-rails'
 # Use Capistrano for deployment

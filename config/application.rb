@@ -10,9 +10,6 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 
-Dotenv::Railtie.load
-
-Dotenv.load('../.ruby-env')
 
 module Lastefond
   class Application < Rails::Application
