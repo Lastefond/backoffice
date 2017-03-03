@@ -9,6 +9,7 @@ class DonationWorker
     req.body = args.first.to_json
     
     res = http.request(req)
+    binding.pry
     puts "response #{res.body}"
   rescue => e
       puts "failed #{e}"
@@ -22,7 +23,7 @@ class DonationWorker
 	  "long": 28.175182,
 	  "name": "Airon",
 	  "amount": 200,
-	  "timestamp": 22324352234
+	  "timestamp": 1488556497
 	}
   end
 end	

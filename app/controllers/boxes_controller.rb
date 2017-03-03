@@ -10,6 +10,7 @@ class BoxesController < ApplicationController
   # GET /boxes/1
   # GET /boxes/1.json
   def show
+    @donator = Donator.new
   end
 
   # GET /boxes/new
@@ -59,6 +60,10 @@ class BoxesController < ApplicationController
       format.html { redirect_to boxes_url, notice: 'Box was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def manual_donation
+
   end
 
   private

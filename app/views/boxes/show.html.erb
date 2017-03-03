@@ -21,3 +21,31 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+
+<div class="page-header">
+  <h2>Enter donation manually</h2>
+</div>
+<%= bootstrap_flash %>
+<div class="col-md-12">
+
+  <%= form_for @donator, html: {class: 'form-horizontal box'} do |f| %>
+    
+    <%= f.hidden_field :box_id, value: @box.id %>
+    <div class="form-group">
+      <%= f.label :name, class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>  
+    </div>
+
+    <%= f.fields_for :donation do |d| %>
+    <div class="form-group">
+      <%= d.label :amount, class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= d.text_field :amount, class: 'form-control' %>
+      </div>  
+    </div>
+    <% end %>
+   <%= f.submit 'Make donation', :class => 'btn btn-primary' %>
+  <% end %>
+</div>

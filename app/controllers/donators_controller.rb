@@ -60,20 +60,25 @@ class DonatorsController < ApplicationController
 
   private
     def create_donation(donator)
-    
+      donator[:timestamp] = Time.now.to_i unless donator[:timestamp].present?
       @donator= Donator.create(
           name: donator[:name],
           received_at: DateTime.strptime(donator[:timestamp].to_s,'%s'),
           box: Box.find(donator[:box_id])
         )
       
-      donator[:coins].each do |donation|
-        @donator.donations.create(amount: BigDecimal(donation)/100)
+      if donator[:coins].present?
+        donator[:coins].each do |donation|
+          @donator.donations.create(amount: BigDecimal(donation)/100)
+        end 
+      else
+        Donation.create(donator: @donator, amount: donator[:donation][:amount])
       end
       
       respond_to do |format|
         if @donator.save
-          format.html { redirect_to @donator, notice: 'Donator was successfully created.' }
+          @donator.send_to_web
+          format.html { redirect_to Box.find(donator[:box_id]), notice: 'Donator was successfully created.' }
           format.json { render :show, status: :created, location: @donator }
         else
           format.html { render :new }
@@ -82,6 +87,10 @@ class DonatorsController < ApplicationController
       end
     end
 
+
+    
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_donator
       @donator = Donator.find(params[:id])
@@ -89,6 +98,7 @@ class DonatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donator_params
+      return params.require('donator').permit(:box_id, :name, :timestamp, donation: [:amount]) if params[:donator].present?
       params.permit(:box_id, :name, :timestamp, coins: [])
     end
 end
