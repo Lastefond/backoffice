@@ -66,7 +66,7 @@ class DonatorsController < ApplicationController
           received_at: DateTime.strptime(donator[:timestamp].to_s,'%s'),
           box: Box.find(donator[:box_id])
         )
-      
+      binding.pry
       if donator[:coins].present?
         donator[:coins].each do |donation|
           @donator.donations.create(amount: BigDecimal(donation)/100)
@@ -98,7 +98,7 @@ class DonatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donator_params
-      return params.require('donator').permit(:box_id, :name, :timestamp, donation: [:amount]) if params[:donator].present?
+      return params.require('donator').permit(:box_id, :name, :timestamp, donation: [:amount]) unless params[:donator].present?
       params.permit(:box_id, :name, :timestamp, coins: [])
     end
 end
