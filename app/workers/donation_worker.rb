@@ -9,7 +9,6 @@ class DonationWorker
     req.body = args.first.to_json
     
     res = http.request(req)
-    binding.pry
     puts "response #{res.body}"
   rescue => e
       puts "failed #{e}"
