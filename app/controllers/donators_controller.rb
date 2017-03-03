@@ -66,7 +66,6 @@ class DonatorsController < ApplicationController
           received_at: DateTime.strptime(donator[:timestamp].to_s,'%s'),
           box: Box.find(donator[:box_id])
         )
-      binding.pry
       if donator[:coins].present?
         donator[:coins].each do |donation|
           @donator.donations.create(amount: BigDecimal(donation)/100)
