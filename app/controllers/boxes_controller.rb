@@ -1,5 +1,6 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :only => [:update_last_online]
 
   # GET /boxes
   # GET /boxes.json
@@ -49,6 +50,14 @@ class BoxesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @box.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update_last_online
+    @box = Box.find(params[:id])
+    @box.update_attribute(:last_online,  Time.at(params[:last_online]))
+    respond_to do |format|
+      format.json { render :show, status: :ok, location: @box }
     end
   end
 

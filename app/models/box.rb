@@ -6,4 +6,9 @@ class Box < ApplicationRecord
 	def sum_donations
 		self.donations.sum(:amount)
 	end
+
+	def online?
+		Time.now-last_online<120
+	end
+
 end

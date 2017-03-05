@@ -17,7 +17,10 @@
     <% @boxes.each do |box| %>
       <tr>
         <td><%= link_to box.id, box_path(box) %></td>
-        <td><%= box.location %></td>
+        <td>
+          <%= fa_icon(:circle, class: box.online? ? 'text-success' : 'text-danger') %>
+          <%= box.location %>
+        </td>
         <td><%= box.lat %></td>
         <td><%= box.long %></td>
         <td><%= box.sum_donations %></td>

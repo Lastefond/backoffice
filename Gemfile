@@ -40,6 +40,7 @@ gem 'dotenv-rails'
 # Use Capistrano for deployment
 
 gem 'sidekiq'
+gem "font-awesome-rails"
 
 
 group :development, :test do

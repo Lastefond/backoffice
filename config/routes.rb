@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   resources :donations
   resources :donators
   resources :donator
-  resources :boxes
+  resources :boxes do
+  	#member do
+  	#  patch :update_last_online
+  	#end
+  	patch '/', action: :update_last_online, on: :member
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
