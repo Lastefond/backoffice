@@ -8,7 +8,7 @@ class Box < ApplicationRecord
 	end
 
 	def online?
-		return false if Box.last.last_online.nil?
+		return false if last_online.nil?
 		Time.now-last_online<120
 	end
 
