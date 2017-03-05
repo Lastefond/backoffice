@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   	#member do
   	#  patch :update_last_online
   	#end
+  	put '/', action: :update, on: :member
   	patch '/', action: :update_last_online, on: :member
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
