@@ -5,7 +5,7 @@ class BoxesController < ApplicationController
   # GET /boxes
   # GET /boxes.json
   def index
-    @boxes = Box.all
+    @boxes = Box.all.order(id: :asc)
   end
 
   # GET /boxes/1
