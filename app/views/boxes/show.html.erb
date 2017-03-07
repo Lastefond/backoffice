@@ -10,6 +10,8 @@
   <dd><%= @box.lat %></dd>
   <dt><strong><%= model_class.human_attribute_name(:long) %>:</strong></dt>
   <dd><%= @box.long %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sim_id) %>:</strong></dt>
+  <dd><%= @box.sim_id %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
