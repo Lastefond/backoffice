@@ -24,14 +24,7 @@ class DonatorsController < ApplicationController
   # POST /donators
   # POST /donators.json
   def create
-    
-    
     return @donator = create_donation(donator_params) unless params['_json'].present?
-
-    params['_json'].each do |donator|
-      create_donation(donator.permit(:box_id, :name))
-    end if params['_json'].present?
-    
   end
 
   # PATCH/PUT /donators/1
@@ -97,7 +90,7 @@ class DonatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donator_params
-      return params.require('donator').permit(:box_id, :name, :timestamp, donation: [:amount]) unless params[:donator].present?
+      return params.require('donator').permit(:box_id, :name, :timestamp, donation: [:amount]) unless params[:coins].present?
       params.permit(:box_id, :name, :timestamp, coins: [])
     end
 end
