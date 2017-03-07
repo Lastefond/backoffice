@@ -1,5 +1,5 @@
 class Donator < ApplicationRecord
-	has_many :donations
+	has_many :donations, dependent: :destroy
 	belongs_to :box
 
 	

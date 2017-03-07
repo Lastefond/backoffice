@@ -16,7 +16,7 @@
     <% @donations.each do |donation| %>
       <tr>
         <td><%= link_to donation.id, donation_path(donation) %></td>
-        <td><%= donation.donator_id %></td>
+        <td><%= donation.donator.name %></td>
         <td><%= donation.amount %></td>
         <td><%=l donation.created_at %></td>
         <td>

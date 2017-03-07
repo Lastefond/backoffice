@@ -15,7 +15,7 @@
   <tbody>
     <% @donators.each do |donator| %>
       <tr>
-        <td><%= donator.box.location %></td>
+        <td><%= link_to(donator.box.location, box_path(donator.box)) %></td>
         <td><%= donator.name %></td>
         <td><%= donator.sum_donations %></td>
         <td><%=l donator.created_at %></td>

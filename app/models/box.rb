@@ -1,5 +1,5 @@
 class Box < ApplicationRecord
-	has_many :donators
+	has_many :donators, dependent: :destroy
 	has_many :donations, through: :donators
 
 

@@ -4,7 +4,7 @@ class DonatorsController < ApplicationController
   # GET /donators
   # GET /donators.json
   def index
-    @donators = Donator.all
+    @donators = Donator.includes(:box).all.order(created_at: :desc)
   end
 
   # GET /donators/1

@@ -5,8 +5,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      
       <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:box_number) %></th>
       <th><%= model_class.human_attribute_name(:lat) %></th>
       <th><%= model_class.human_attribute_name(:long) %></th>
       <th><%= model_class.human_attribute_name(:donations_sum) %></th>
@@ -16,11 +17,12 @@
   <tbody>
     <% @boxes.each do |box| %>
       <tr>
-        <td><%= link_to box.id, box_path(box) %></td>
+        
         <td>
           <%= fa_icon(:circle, class: box.online? ? 'text-success' : 'text-danger') %>
-          <%= box.location %>
+          <%= link_to box.location, box_path(box)  %>
         </td>
+        <td><%= box.id %></td>
         <td><%= box.lat %></td>
         <td><%= box.long %></td>
         <td><%= box.sum_donations %></td>
@@ -29,7 +31,7 @@
                       box_path(box), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_box_path(box), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%# link_to t('.destroy', :default => t("helpers.links.destroy")),
                       box_path(box),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
