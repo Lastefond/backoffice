@@ -13,6 +13,12 @@ class BoxesController < ApplicationController
   # GET /boxes/1.json
   def show
     @donator = Donator.new
+    respond_to do |format|
+      
+      format.html { render :show }
+      format.json { render json: {donations_sum: (@box.sum_donations*100).to_i} }
+      
+      end
   end
 
   # GET /boxes/new
