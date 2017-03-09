@@ -1,6 +1,7 @@
 class DonatorsController < ApplicationController
   before_action :set_donator, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, :only => [:create]
+  skip_before_filter :authenticate_user!, :only => [:create]
   # GET /donators
   # GET /donators.json
   def index
