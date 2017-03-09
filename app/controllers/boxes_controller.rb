@@ -16,7 +16,7 @@ class BoxesController < ApplicationController
     respond_to do |format|
       
       format.html { render :show }
-      format.json { render json: {donations_sum: @box.sum_donations }
+      format.json { render json: {donations_sum: @box.sum_donations } }
       
       end
   end
