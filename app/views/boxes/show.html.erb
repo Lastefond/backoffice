@@ -12,6 +12,8 @@
   <dd><%= @box.long %></dd>
   <dt><strong><%= model_class.human_attribute_name(:sim_id) %>:</strong></dt>
   <dd><%= @box.sim_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sum_donations) %>:</strong></dt>
+  <dd><%= @box.sum_donations %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -50,4 +52,28 @@
     <% end %>
    <%= f.submit 'Make donation', :class => 'btn btn-primary' %>
   <% end %>
+</div>
+
+<div class="page-header">
+  <h2>10 Last donations</h2>
+</div>
+<div class="col-md-12">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @box.donators.last(10).each do |donator| %>
+    <tr>
+      <td><%= donator.name %></td>
+      <td><%= donator.sum_donations %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 </div>
