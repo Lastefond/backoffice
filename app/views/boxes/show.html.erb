@@ -70,6 +70,11 @@
     <tr>
       <td><%= donator.name %></td>
       <td><%= donator.sum_donations %></td>
+      <td><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      donator_path(donator),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %></td>
     </tr>
     <% end %>
   </tbody>
