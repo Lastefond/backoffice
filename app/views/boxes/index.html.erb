@@ -7,6 +7,7 @@
     <tr>
       
       <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
       <th><%= model_class.human_attribute_name(:box_number) %></th>
       <th><%= model_class.human_attribute_name(:lat) %></th>
       <th><%= model_class.human_attribute_name(:long) %></th>
@@ -22,6 +23,7 @@
           <%= fa_icon(:circle, class: box.online? ? 'text-success' : 'text-danger') %>
           <%= link_to box.location, box_path(box)  %>
         </td>
+        <td><%= box.city %></td>
         <td><%= box.id %></td>
         <td><%= box.lat %></td>
         <td><%= box.long %></td>

@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.7.2"
+lock "3.10.1"
 
 set :application, "lastefond_backoffice"
 set :repo_url, "git@github.com:Lastefond/backoffice.git"
@@ -20,6 +20,9 @@ set :deploy_to, "/var/www/backoffice"
 # Default value for :pty is false
 # set :pty, true
 
+set :rvm_ruby_string,  'ruby-2.4.2@lastefond'
+set :rvm_ruby_version, 'ruby-2.4.2@lastefond'
+
 # Default value for :linked_files is []
 append :linked_files, ".ruby-env", "db/production.sqlite3"
 
@@ -31,8 +34,6 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-set :rvm_ruby_version, 'ruby-2.3.3@lastefond'
 
 
 namespace :deploy do
