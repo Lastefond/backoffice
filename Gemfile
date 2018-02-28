@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.1.4'
 # Use psotgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'kaminari'
 
 gem "therubyracer"
 gem 'sprockets', '3.6.3'
@@ -66,6 +68,3 @@ group :development do
   gem 'capistrano-passenger'
   gem 'capistrano3-nginx'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

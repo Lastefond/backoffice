@@ -1,7 +1,7 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :only => [:update_last_online]
-  skip_before_filter :authenticate_user!, :only => [:update_last_online, :show]
+  skip_before_action :verify_authenticity_token, :only => [:update_last_online]
+  skip_before_action :authenticate_user!, :only => [:update_last_online, :show]
 
   # GET /boxes
   # GET /boxes.json

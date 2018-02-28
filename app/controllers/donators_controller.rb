@@ -1,11 +1,12 @@
 class DonatorsController < ApplicationController
   before_action :set_donator, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :only => [:create]
-  skip_before_filter :authenticate_user!, :only => [:create]
+  skip_before_action :verify_authenticity_token, :only => [:create]
+  skip_before_action :authenticate_user!, :only => [:create]
   # GET /donators
   # GET /donators.json
   def index
-    @donators = Donator.includes(:box).all.order(created_at: :desc)
+    #@donators = Donator.includes(:box).where(archived_at: nil).order(created_at: :desc).page params[:page]
+    @donators = Donator.includes(:box).where(archived_at: nil).order(created_at: :desc).page params[:page]
   end
 
   # GET /donators/1
