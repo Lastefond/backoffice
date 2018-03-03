@@ -68,7 +68,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @box.donators.last(10).each do |donator| %>
+    <% @box.donators.where(archived_at: nil).last(10).each do |donator| %>
     <tr>
       <td><%= donator.name %></td>
       <td><%= donator.sum_donations %></td>

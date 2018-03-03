@@ -5,7 +5,7 @@ class Box < ApplicationRecord
 	attr_reader :sum_donations
 
 	def sum_donations
-		self.donations.sum(:amount)
+		self.donations.where(archived_at: nil).sum(:amount)
 	end
 
 	def online?

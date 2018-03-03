@@ -30,7 +30,7 @@
           </ul> 
         </div> 
         </div> 
-        <p class="navbar-text navbar-right">Total: <%= Donation.sum(:amount) %></p>
+        <p class="navbar-text navbar-right">Total: <%= Donation.where(archived_at: nil).sum(:amount) %></p>
       </div>
   </nav>
   <div class="container-fluid">
